@@ -8,7 +8,7 @@ export const metadata: Metadata = {
   description: "Création de CV professionnels",
   // Ajoute la ligne ci-dessous :
   verification: {
-    google: "qN3mFa6ROzwdopfMbHJLRgigwXHjUGFlict3", // C'est le code de ta capture d'écran
+    google: "x3pqolTHXymHcdQoxlsJjpqpDxBI7PIrykvDOFKASrY", // C'est le code de ta capture d'écran
   },
 };
 
