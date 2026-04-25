@@ -56,7 +56,7 @@ export default function CommanderPage() {
     if (Object.keys(newErrors).length > 0) return;
 
     const message = `🇸🇳 *NOUVELLE COMMANDE*\n\n👤 *Client* : ${form.prenom} ${form.nom}\n📞 *Tel* : ${form.tel}\n📋 *Service* : ${form.service}\n💰 *Total* : ${getSelectedPrice()}\n📝 *Détails* : ${form.details}`;
-    window.open(`https://wa.me/${WHATSAPP_NUMBER}?text=${encodeURIComponent(message)}`, "_blank");
+    window.open(`https://wa.me/221767424558?text=${encodeURIComponent(message)}`, "_blank");
   };
 
   const inputClass = (field: string) =>
