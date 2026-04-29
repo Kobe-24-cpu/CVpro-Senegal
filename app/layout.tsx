@@ -6,10 +6,6 @@ import Footer from "@/components/Footer";
 export const metadata: Metadata = {
   title: "CVPro Sénégal",
   description: "Création de CV professionnels",
-  // Ajoute la ligne ci-dessous :
-  verification: {
-    google: "x3pqolTHXymHcdQoxlsJjpqpDxBI7PIrykvDOFKASrY", // C'est le code de ta capture d'écran
-  },
 };
 
 export default function RootLayout({
