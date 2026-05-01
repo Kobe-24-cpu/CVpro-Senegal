@@ -28,7 +28,7 @@ export default function Header() {
 
         {/* Bouton d'action */}
         <Link 
-          href="/Obtenir mon CV Pro" 
+          href="/Commander" 
           className="bg-yellow-500 hover:bg-yellow-400 text-zinc-950 px-6 py-2.5 rounded-full font-bold text-sm transition-all"
         >
           Commander
