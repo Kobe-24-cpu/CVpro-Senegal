@@ -58,10 +58,10 @@ export default function Header() {
           <Link href="/" onClick={closeMenu} className="text-xl text-zinc-400 hover:text-yellow-400">
             Accueil
           </Link>
-          <Link href="/#fonctionnalites" onClick={closeMenu} className="text-xl text-zinc-400 hover:text-yellow-400">
+          <Link href="/" onClick={closeMenu} className="text-xl text-zinc-400 hover:text-yellow-400">
             Fonctionnalités
           </Link>
-          <Link href="/#avis" onClick={closeMenu} className="text-xl text-zinc-400 hover:text-yellow-400">
+          <Link href="/" onClick={closeMenu} className="text-xl text-zinc-400 hover:text-yellow-400">
             Avis
           </Link>
           <Link 
