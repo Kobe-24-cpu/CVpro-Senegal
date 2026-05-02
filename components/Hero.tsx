@@ -61,7 +61,7 @@ export default function Hero() {
                 href="/commander#form-section" 
                 className="bg-yellow-500 text-zinc-900 font-bold px-8 py-4 rounded-full hover:bg-yellow-400 transition-all shadow-lg shadow-yellow-500/10 flex items-center gap-2"
               >
-                📋 Passer commande
+                📋 Obtenir mon CVPro
               </Link>
 
               <Link
@@ -72,32 +72,57 @@ export default function Hero() {
               </Link>
             </div>
           </div>
+          {/* SECTION STATISTIQUES (Preuve Sociale) */}
+<div className="mt-12 pt-8 border-t border-white/5 flex flex-wrap gap-8 md:gap-12">
+  <div>
+    <p className="text-2xl font-bold text-white leading-none">+2000</p>
+    <p className="text-zinc-500 text-sm mt-1 uppercase tracking-wider font-medium">CV créés</p>
+  </div>
 
-          {/* DIAPORAMA (Droite) */}
-          <div className="relative h-[400px] md:h-[500px] w-full rounded-2xl overflow-hidden border border-zinc-800 shadow-2xl bg-zinc-900">
-            {heroImages.map((img, index) => (
-              <div
-                key={index}
-                className={`absolute inset-0 transition-opacity duration-1000 ease-in-out ${
+  <div className="w-px h-10 bg-white/10 hidden sm:block" /> {/* Petite barre de séparation */}
+
+  <div>
+    <p className="text-2xl font-bold text-yellow-400 leading-none">98%</p>
+    <p className="text-zinc-500 text-sm mt-1 uppercase tracking-wider font-medium">Clients satisfaits</p>
+  </div>
+
+  <div className="w-px h-10 bg-white/10 hidden sm:block" /> {/* Petite barre de séparation */}
+
+  <div>
+    <div className="flex gap-1 mb-1">
+      {[...Array(5)].map((_, i) => (
+        <span key={i} className="text-yellow-500 text-sm">★</span>
+      ))}
+    </div>
+    <p className="text-zinc-500 text-sm uppercase tracking-wider font-medium">Service Premium</p>
+  </div>
+</div>
+
+          {/* DIAPORAMA (Droite) - Taille ajustée et style épuré */}
+            <div className="relative h-[350px] md:h-[450px] w-full flex items-center justify-center overflow-hidden">
+                 {heroImages.map((img, index) => (
+            <div
+                 key={index}
+                 className={`absolute inset-0 transition-opacity duration-1000 ease-in-out flex items-center justify-center ${
                   index === currentIndex ? "opacity-100" : "opacity-0"
-                }`}
-              >
-                <img 
+           }`}
+             >
+           <img 
                   src={img} 
-                  alt={`Aperçu ${index + 1}`} 
-                  className="max-w-full max-h-full object-contain drop-shadow-2xl"
-                   onError={(e) => { e.currentTarget.src = "https://via.placeholder.com/600x800/18181b/eab308?text=Image+Hero"; }}
-                />
-              </div>
-            ))}
-            
-            {/* Points indicateurs */}
-            <div className="absolute bottom-4 left-1/2 -translate-x-1/2 flex gap-2">
-              {heroImages.map((_, i) => (
-                <div key={i} className={`h-1.5 w-6 rounded-full transition-all ${i === currentIndex ? "bg-yellow-500" : "bg-white/20"}`} />
-              ))}
-            </div>
-          </div>
+        alt={`Aperçu ${index + 1}`} 
+        className="max-w-full max-h-full object-contain drop-shadow-xl"
+        onError={(e) => { e.currentTarget.src = "https://via.placeholder.com/400x600/18181b/eab308?text=Image+Hero"; }}
+      />
+    </div>
+  ))}
+  
+  {/* Points indicateurs plus discrets */}
+  <div className="absolute bottom-2 left-1/2 -translate-x-1/2 flex gap-2">
+    {heroImages.map((_, i) => (
+      <div key={i} className={`h-1 w-4 rounded-full transition-all ${i === currentIndex ? "bg-yellow-500" : "bg-white/10"}`} />
+    ))}
+  </div>
+</div>
         </div>
       </section>
 
