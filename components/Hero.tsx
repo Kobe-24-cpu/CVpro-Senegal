@@ -16,6 +16,7 @@ export default function Hero() {
     { title: "CV Moderne", img: "/image/mod-1.png" },
     { title: "Lettre de Motivation", img: "/image/mod-2.png" },
     { title: "CV Exécutif", img: "/image/mod-3.png" },
+    { title: "Design Créatif", img: "/image/mod-4.png" },
   ];
 
   const [currentIndex, setCurrentIndex] = useState(0);
