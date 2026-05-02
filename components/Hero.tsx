@@ -85,8 +85,8 @@ export default function Hero() {
                 <img 
                   src={img} 
                   alt={`Aperçu ${index + 1}`} 
-                  className="w-full h-full object-cover"
-                  onError={(e) => { e.currentTarget.src = "https://via.placeholder.com/600x800/18181b/eab308?text=Image+Hero"; }}
+                  className="max-w-full max-h-full object-contain drop-shadow-2xl"
+                   onError={(e) => { e.currentTarget.src = "https://via.placeholder.com/600x800/18181b/eab308?text=Image+Hero"; }}
                 />
               </div>
             ))}
