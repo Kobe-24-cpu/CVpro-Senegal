@@ -24,10 +24,10 @@ export default function Header() {
           <Link href="/" className="text-zinc-400 hover:text-yellow-400 transition-colors">
             Accueil
           </Link>
-          <Link href="/#fonctionnalites" className="text-zinc-400 hover:text-yellow-400 transition-colors">
+          <Link href="/fonctionnalites" className="text-zinc-400 hover:text-yellow-400 transition-colors">
             Fonctionnalités
           </Link>
-          <Link href="/#avis" className="text-zinc-400 hover:text-yellow-400 transition-colors">
+          <Link href="/avis" className="text-zinc-400 hover:text-yellow-400 transition-colors">
             Avis
           </Link>
         </nav>
