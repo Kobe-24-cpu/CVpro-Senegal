@@ -72,29 +72,29 @@ export default function Hero() {
               </Link>
             </div>
           </div>
-          {/* SECTION STATISTIQUES (Preuve Sociale) */}
-<div className="mt-12 pt-8 border-t border-white/5 flex flex-wrap gap-8 md:gap-12">
-  <div>
-    <p className="text-2xl font-bold text-white leading-none">+2000</p>
-    <p className="text-zinc-500 text-sm mt-1 uppercase tracking-wider font-medium">CV créés</p>
+          {/* SECTION STATISTIQUES (Optimisée Mobile) */}
+<div className="mt-10 pt-6 border-t border-white/5 flex items-center justify-between gap-2">
+  <div className="flex-1 text-center sm:text-left">
+    <p className="text-xl md:text-2xl font-bold text-white leading-none">+2000</p>
+    <p className="text-[10px] md:text-xs text-zinc-500 mt-1 uppercase tracking-tighter">CV créés</p>
   </div>
 
-  <div className="w-px h-10 bg-white/10 hidden sm:block" /> {/* Petite barre de séparation */}
+  <div className="w-px h-8 bg-white/10" /> 
 
-  <div>
-    <p className="text-2xl font-bold text-yellow-400 leading-none">98%</p>
-    <p className="text-zinc-500 text-sm mt-1 uppercase tracking-wider font-medium">Clients satisfaits</p>
+  <div className="flex-1 text-center sm:text-left">
+    <p className="text-xl md:text-2xl font-bold text-yellow-400 leading-none">98%</p>
+    <p className="text-[10px] md:text-xs text-zinc-500 mt-1 uppercase tracking-tighter">Satisfaction</p>
   </div>
 
-  <div className="w-px h-10 bg-white/10 hidden sm:block" /> {/* Petite barre de séparation */}
+  <div className="w-px h-8 bg-white/10" />
 
-  <div>
-    <div className="flex gap-1 mb-1">
+  <div className="flex-1 text-center sm:text-left">
+    <div className="flex justify-center sm:justify-start gap-0.5 mb-1">
       {[...Array(5)].map((_, i) => (
-        <span key={i} className="text-yellow-500 text-sm">★</span>
+        <span key={i} className="text-yellow-500 text-[10px]">★</span>
       ))}
     </div>
-    <p className="text-zinc-500 text-sm uppercase tracking-wider font-medium">Service Premium</p>
+    <p className="text-[10px] md:text-xs text-zinc-500 uppercase tracking-tighter">Premium</p>
   </div>
 </div>
 
