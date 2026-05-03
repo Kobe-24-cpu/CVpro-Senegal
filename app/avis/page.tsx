@@ -7,7 +7,7 @@ import Image from "next/image";
 export default function Avis() {
   const testimonials = [
     {
-      photo: "/image/avis/aliou.png",
+      photo: "/image/aliou.png",
       initials: "AM",
       name: "Aliou Mbaye",
       role: "Étudiant en master, Dakar",
@@ -15,7 +15,7 @@ export default function Avis() {
       text: "Bataaxalu motivation bi dafa méngoo woon bu baax ak liggéey bi ma doon wut. Service bi gaaw na, am na solo te njariñ bi am na kalite bu baax. Jërëjëf loolu ci yeen !",
     },
     {
-      photo: "/image/avis/fatou.png",
+      photo: "/image/fatou.png",
       initials: "FD",
       name: "Fatou Diallo",
       role: "Chercheuse d'emploi, Thiès",
@@ -23,7 +23,7 @@ export default function Avis() {
       text: "J'avais besoin d'un CV pour postuler en France. Le document respectait parfaitement les standards français. Excellent travail, je reviendrai !",
     },
     {
-      photo: "/image/avis/mamadou.png",
+      photo: "/image/mamadou.png",
       initials: "MS",
       name: "Mamadou Sy",
       role: "Candidat à l'international, Saint-Louis",
@@ -31,7 +31,7 @@ export default function Avis() {
       text: "J'ai reçu mon CV en moins de 12 heures, bien structuré et très professionnel. J'ai été convoqué en entretien la semaine suivante. Je recommande vivement !",
     },
     {
-      photo: "/image/avis/aissatou.png",
+      photo: "/image/aissatou.png",
       initials: "AN",
       name: "Aïssatou Ndiaye",
       role: "Comptable, Dakar",
@@ -39,7 +39,7 @@ export default function Avis() {
       text: "J'ai commandé le pack complet CV + lettre. La présentation est moderne et professionnelle. J'ai décroché un poste dans une multinationale à Dakar.",
     },
     {
-      photo: "/image/avis/ousmane.png",
+      photo: "/image/ousmane.png",
       initials: "OB",
       name: "Ousmane Ba",
       role: "Ingénieur junior, Ziguinchor",
@@ -47,7 +47,7 @@ export default function Avis() {
       text: "Bëgg naa lool ci rezultaa bi. Délaisu 24 waxtu bi ñoo ko sàmm bu baax. Sama CV léegi leer na te neex na xool. Damaa koy digal samay xarit yépp.",
     },
     {
-      photo: "/image/avis/mariama.png",
+      photo: "/image/mariama.png",
       initials: "MC",
       name: "Mariama Camara",
       role: "Diplômée BTS, Kaolack",
