@@ -4,14 +4,12 @@ import React, { useState, useEffect } from "react";
 import Link from "next/link";
 
 export default function Hero() {
-  // 1. CONFIGURATION DU DIAPORAMA (HERO)
   const heroImages = [
     "/image/hero-1.png",
     "/image/hero-2.png",
     "/image/hero-3.png",
   ];
 
-  // 2. CONFIGURATION DE LA GALERIE (MODÈLES)
   const modeles = [
     { title: "CV Moderne", img: "/image/mod-1.png" },
     { title: "Lettre de Motivation", img: "/image/mod-2.png" },
@@ -30,18 +28,15 @@ export default function Hero() {
 
   return (
     <main className="bg-zinc-950">
-      {/* ──────────────────────────────────────────────────────────────
-          SECTION HERO (HAUT DE PAGE)
-      ────────────────────────────────────────────────────────────── */}
       <section id="hero" className="min-h-screen flex items-center px-6 md:px-16 pt-20 relative overflow-hidden">
-        
-        {/* Effets de fond */}
-        <div className="absolute inset-0 bg-linear-to-r from-zinc-950 via-zinc-950/80 to-transparent z-1" />
+
+        {/* ── OVERLAY ALLÉGÉ — de /80 à /40 pour voir l'image sur mobile ── */}
+        <div className="absolute inset-0 bg-gradient-to-r from-zinc-950/80 via-zinc-950/40 to-transparent z-[1]" />
         <div className="absolute top-1/2 right-0 -translate-y-1/2 w-150 h-150 rounded-full bg-yellow-500/5 blur-3xl pointer-events-none" />
 
         <div className="container mx-auto grid md:grid-cols-2 gap-12 items-center relative z-10">
-          
-          {/* TEXTE (Gauche) */}
+
+          {/* TEXTE */}
           <div className="max-w-2xl">
             <div className="inline-flex items-center gap-2 bg-yellow-500/10 border border-yellow-500/20 text-yellow-300 text-xs px-4 py-1.5 rounded-full mb-8">
               🇸🇳 Service professionnel au Sénégal
@@ -55,15 +50,13 @@ export default function Hero() {
               CV professionnel et lettre de motivation percutante rédigés par un expert.
             </p>
 
-            {/* BOUTONS (Remis en place) */}
             <div className="flex flex-wrap gap-4">
-              <Link 
-                href="/commander#form-section" 
+              <Link
+                href="/commander#form-section"
                 className="bg-yellow-500 text-zinc-900 font-bold px-8 py-4 rounded-full hover:bg-yellow-400 transition-all shadow-lg shadow-yellow-500/10 flex items-center gap-2"
               >
                 📋 Obtenir mon CVPro
               </Link>
-
               <Link
                 href="/commander"
                 className="px-8 py-4 bg-zinc-900 border border-zinc-800 text-white rounded-full font-bold hover:bg-zinc-800 transition-all"
@@ -72,63 +65,56 @@ export default function Hero() {
               </Link>
             </div>
           </div>
-          {/* SECTION STATISTIQUES (Optimisée Mobile) */}
-<div className="mt-10 pt-6 border-t border-white/5 flex items-center justify-between gap-2">
-  <div className="flex-1 text-center sm:text-left">
-    <p className="text-xl md:text-2xl font-bold text-white leading-none">+2000</p>
-    <p className="text-[10px] md:text-xs text-zinc-500 mt-1 uppercase tracking-tighter">CV créés</p>
-  </div>
 
-  <div className="w-px h-8 bg-white/10" /> 
+          {/* STATISTIQUES */}
+          <div className="mt-10 pt-6 border-t border-white/5 flex items-center justify-between gap-2">
+            <div className="flex-1 text-center sm:text-left">
+              <p className="text-xl md:text-2xl font-bold text-white leading-none">+2000</p>
+              <p className="text-[10px] md:text-xs text-zinc-500 mt-1 uppercase tracking-tighter">CV créés</p>
+            </div>
+            <div className="w-px h-8 bg-white/10" />
+            <div className="flex-1 text-center sm:text-left">
+              <p className="text-xl md:text-2xl font-bold text-yellow-400 leading-none">98%</p>
+              <p className="text-[10px] md:text-xs text-zinc-500 mt-1 uppercase tracking-tighter">Satisfaction</p>
+            </div>
+            <div className="w-px h-8 bg-white/10" />
+            <div className="flex-1 text-center sm:text-left">
+              <div className="flex justify-center sm:justify-start gap-0.5 mb-1">
+                {[...Array(5)].map((_, i) => (
+                  <span key={i} className="text-yellow-500 text-[10px]">★</span>
+                ))}
+              </div>
+              <p className="text-[10px] md:text-xs text-zinc-500 uppercase tracking-tighter">Premium</p>
+            </div>
+          </div>
 
-  <div className="flex-1 text-center sm:text-left">
-    <p className="text-xl md:text-2xl font-bold text-yellow-400 leading-none">98%</p>
-    <p className="text-[10px] md:text-xs text-zinc-500 mt-1 uppercase tracking-tighter">Satisfaction</p>
-  </div>
-
-  <div className="w-px h-8 bg-white/10" />
-
-  <div className="flex-1 text-center sm:text-left">
-    <div className="flex justify-center sm:justify-start gap-0.5 mb-1">
-      {[...Array(5)].map((_, i) => (
-        <span key={i} className="text-yellow-500 text-[10px]">★</span>
-      ))}
-    </div>
-    <p className="text-[10px] md:text-xs text-zinc-500 uppercase tracking-tighter">Premium</p>
-  </div>
-</div>
-
-          {/* DIAPORAMA (Droite) - Taille ajustée et style épuré */}
-            <div className="relative h-[350px] md:h-[450px] w-full flex items-center justify-center overflow-hidden">
-                 {heroImages.map((img, index) => (
-            <div
-                 key={index}
-                 className={`absolute inset-0 transition-opacity duration-1000 ease-in-out flex items-center justify-center ${
+          {/* DIAPORAMA */}
+          <div className="relative h-[350px] md:h-[450px] w-full flex items-center justify-center overflow-hidden">
+            {heroImages.map((img, index) => (
+              <div
+                key={index}
+                className={`absolute inset-0 transition-opacity duration-1000 ease-in-out flex items-center justify-center ${
                   index === currentIndex ? "opacity-100" : "opacity-0"
-           }`}
-             >
-           <img 
-                  src={img} 
-        alt={`Aperçu ${index + 1}`} 
-        className="max-w-full max-h-full object-contain drop-shadow-xl"
-        onError={(e) => { e.currentTarget.src = "https://via.placeholder.com/400x600/18181b/eab308?text=Image+Hero"; }}
-      />
-    </div>
-  ))}
-  
-  {/* Points indicateurs plus discrets */}
-  <div className="absolute bottom-2 left-1/2 -translate-x-1/2 flex gap-2">
-    {heroImages.map((_, i) => (
-      <div key={i} className={`h-1 w-4 rounded-full transition-all ${i === currentIndex ? "bg-yellow-500" : "bg-white/10"}`} />
-    ))}
-  </div>
-</div>
+                }`}
+              >
+                <img
+                  src={img}
+                  alt={`Aperçu ${index + 1}`}
+                  className="max-w-full max-h-full object-contain drop-shadow-xl"
+                  onError={(e) => { e.currentTarget.src = "https://via.placeholder.com/400x600/18181b/eab308?text=Image+Hero"; }}
+                />
+              </div>
+            ))}
+            <div className="absolute bottom-2 left-1/2 -translate-x-1/2 flex gap-2">
+              {heroImages.map((_, i) => (
+                <div key={i} className={`h-1 w-4 rounded-full transition-all ${i === currentIndex ? "bg-yellow-500" : "bg-white/10"}`} />
+              ))}
+            </div>
+          </div>
         </div>
       </section>
 
-      {/* ──────────────────────────────────────────────────────────────
-          SECTION GALERIE (MODÈLES EN BAS)
-      ────────────────────────────────────────────────────────────── */}
+      {/* GALERIE MODÈLES */}
       <section className="py-24 px-6 border-t border-zinc-900">
         <div className="max-w-6xl mx-auto">
           <div className="text-center mb-16">
@@ -137,17 +123,16 @@ export default function Hero() {
               Découvrez la qualité de nos mises en page et la structure de nos lettres de motivation.
             </p>
           </div>
-          
           <div className="grid grid-cols-2 md:grid-cols-4 gap-6">
             {modeles.map((item, index) => (
               <div key={index} className="group relative overflow-hidden rounded-xl border border-zinc-800 bg-zinc-900 aspect-[3/4]">
-                <img 
-                  src={item.img} 
+                <img
+                  src={item.img}
                   alt={item.title}
                   className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110"
                   onError={(e) => { e.currentTarget.src = "https://via.placeholder.com/300x400/27272a/ffffff?text=Exemple+Modèle"; }}
                 />
-                <div className="absolute inset-0 bg-linear-to-t from-zinc-950 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity flex items-end p-4">
+                <div className="absolute inset-0 bg-gradient-to-t from-zinc-950 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity flex items-end p-4">
                   <span className="text-white text-sm font-medium">{item.title}</span>
                 </div>
               </div>

@@ -2,17 +2,20 @@
 
 import React from "react";
 import { Star, Quote } from "lucide-react";
+import Image from "next/image";
 
 export default function Avis() {
   const testimonials = [
     {
+      photo: "/image/avis/aliou.png",
       initials: "AM",
       name: "Aliou Mbaye",
       role: "Étudiant en master, Dakar",
       color: "from-yellow-500 to-yellow-700",
-      text: "J'ai reçu mon CV en moins de 12 heures, bien structuré et très professionnel. J'ai été convoqué en entretien la semaine suivante. Je recommande vivement !",
+      text: "Bataaxalu motivation bi dafa méngoo woon bu baax ak liggéey bi ma doon wut. Service bi gaaw na, am na solo te njariñ bi am na kalite bu baax. Jërëjëf loolu ci yeen !",
     },
     {
+      photo: "/image/avis/fatou.png",
       initials: "FD",
       name: "Fatou Diallo",
       role: "Chercheuse d'emploi, Thiès",
@@ -20,13 +23,15 @@ export default function Avis() {
       text: "J'avais besoin d'un CV pour postuler en France. Le document respectait parfaitement les standards français. Excellent travail, je reviendrai !",
     },
     {
+      photo: "/image/avis/mamadou.png",
       initials: "MS",
       name: "Mamadou Sy",
       role: "Candidat à l'international, Saint-Louis",
       color: "from-yellow-500 to-yellow-700",
-      text: "Bataaxalu motivation bi dafa méngoo woon bu baax ak liggéey bi ma doon wut. Service bi gaaw na, am na solo te njariñ bi am na kalite bu baax. Jërëjëf loolu ci yeen !",
+      text: "J'ai reçu mon CV en moins de 12 heures, bien structuré et très professionnel. J'ai été convoqué en entretien la semaine suivante. Je recommande vivement !",
     },
     {
+      photo: "/image/avis/aissatou.png",
       initials: "AN",
       name: "Aïssatou Ndiaye",
       role: "Comptable, Dakar",
@@ -34,6 +39,7 @@ export default function Avis() {
       text: "J'ai commandé le pack complet CV + lettre. La présentation est moderne et professionnelle. J'ai décroché un poste dans une multinationale à Dakar.",
     },
     {
+      photo: "/image/avis/ousmane.png",
       initials: "OB",
       name: "Ousmane Ba",
       role: "Ingénieur junior, Ziguinchor",
@@ -41,6 +47,7 @@ export default function Avis() {
       text: "Bëgg naa lool ci rezultaa bi. Délaisu 24 waxtu bi ñoo ko sàmm bu baax. Sama CV léegi leer na te neex na xool. Damaa koy digal samay xarit yépp.",
     },
     {
+      photo: "/image/avis/mariama.png",
       initials: "MC",
       name: "Mariama Camara",
       role: "Diplômée BTS, Kaolack",
@@ -52,24 +59,21 @@ export default function Avis() {
   return (
     <div className="min-h-screen pt-32 pb-20 px-6 relative overflow-hidden">
 
-      {/* ── IMAGE DE FOND ANIMÉE ──────────────────────────────────────
-          Copiez avis-bg.png dans /public de votre projet Next.js
-      ─────────────────────────────────────────────────────────────── */}
+      {/* Image de fond */}
       <div
         className="absolute inset-0 bg-cover bg-center bg-no-repeat avis-bg-anim"
         style={{ backgroundImage: "url('/image/avis-bg.png')" }}
       />
 
-      {/* Overlay principal — fond sombre pour lisibilité des cartes */}
-      <div className="absolute inset-0 bg-zinc-950/88 pointer-events-none" />
+      {/* ── OVERLAY ALLÉGÉ — de /88 à /55 ── */}
+      <div className="absolute inset-0 bg-zinc-950/55 pointer-events-none" />
 
-      {/* Vignette dorée subtile en haut (rappel de la lampe dans l'image) */}
-      <div className="absolute top-0 left-0 right-0 h-64 bg-linear-to-b from-yellow-900/10 to-transparent pointer-events-none" />
+      {/* Lueur dorée haut */}
+      <div className="absolute top-0 left-0 right-0 h-64 bg-gradient-to-b from-yellow-900/10 to-transparent pointer-events-none" />
 
       {/* Fondu bas */}
-      <div className="absolute bottom-0 left-0 right-0 h-32 bg-linear-to-t from-zinc-950 to-transparent pointer-events-none" />
+      <div className="absolute bottom-0 left-0 right-0 h-32 bg-gradient-to-t from-zinc-950 to-transparent pointer-events-none" />
 
-      {/* ── Contenu — structure inchangée ── */}
       <div className="max-w-6xl mx-auto relative z-10">
         <div className="text-center mb-16">
           <h1 className="text-4xl md:text-5xl font-serif font-bold text-white mb-4">
@@ -84,7 +88,7 @@ export default function Avis() {
           {testimonials.map((t, i) => (
             <div
               key={i}
-              className="bg-zinc-900/50 border border-zinc-800 p-8 rounded-2xl relative flex flex-col hover:border-yellow-500/30 transition-all group"
+              className="bg-zinc-900/60 backdrop-blur-sm border border-zinc-800 p-8 rounded-2xl relative flex flex-col hover:border-yellow-500/30 transition-all group"
             >
               <Quote className="absolute top-6 right-6 text-zinc-800 w-10 h-10 group-hover:text-yellow-500/10 transition-colors" />
 
@@ -99,8 +103,22 @@ export default function Avis() {
               </p>
 
               <div className="mt-auto flex items-center gap-4">
-                <div className={`w-12 h-12 rounded-full bg-linear-to-br ${t.color} flex items-center justify-center text-white font-bold shadow-lg border border-white/10`}>
-                  {t.initials}
+                <div className="relative w-12 h-12 rounded-full overflow-hidden shrink-0 border-2 border-yellow-500/40 shadow-lg">
+                  <Image
+                    src={t.photo}
+                    alt={`Photo de ${t.name}`}
+                    fill
+                    className="object-cover object-center"
+                    onError={(e) => {
+                      const target = e.currentTarget as HTMLImageElement;
+                      target.style.display = "none";
+                      const fallback = target.nextElementSibling as HTMLElement;
+                      if (fallback) fallback.style.display = "flex";
+                    }}
+                  />
+                  <div className={`absolute inset-0 bg-gradient-to-br ${t.color} items-center justify-center text-white font-bold text-sm hidden`}>
+                    {t.initials}
+                  </div>
                 </div>
                 <div className="text-left">
                   <p className="text-white font-bold">{t.name}</p>
@@ -112,7 +130,6 @@ export default function Avis() {
         </div>
       </div>
 
-      {/* ── Animations ── */}
       <style>{`
         @keyframes avisReveal {
           0%   { transform: scale(1.08); opacity: 0; filter: blur(6px); }
@@ -131,7 +148,6 @@ export default function Avis() {
           will-change: transform, opacity, filter;
         }
       `}</style>
-
     </div>
   );
 }
