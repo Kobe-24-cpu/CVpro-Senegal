@@ -14,8 +14,15 @@ export default function Header() {
       <div className="max-w-6xl mx-auto px-6 h-20 flex items-center justify-between">
 
         {/* Logo */}
-        <Link href="/" className="text-2xl font-serif font-bold text-white italic">
-          CV<span className="text-yellow-400">Pro</span>
+        <Link href="/" className="flex items-center gap-3 group">
+          <img 
+            src="/favicon-96x96.png" 
+            alt="Logo CVPro Galsen" 
+            className="h-10 w-auto object-contain transition-transform group-hover:scale-110"
+          />
+          <span className="text-xl font-serif font-bold text-white italic hidden sm:block">
+            CV<span className="text-yellow-400">Pro</span>
+          </span>
         </Link>
 
         {/* Navigation Desktop */}

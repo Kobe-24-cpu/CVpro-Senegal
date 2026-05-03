@@ -6,6 +6,9 @@ import Footer from "@/components/Footer";
 export const metadata: Metadata = {
   title: "CVPro Sénégal - Créez un CV qui décroche des entretiens",
   description: "Le service n°1 au Sénégal pour des CV modernes, optimisés ATS et lettres de motivation. Boostez votre carrière dès aujourd'hui.",
+  openGraph: {
+    images: [{ url: '/image/og-image.png', width: 1200, height: 630 }],
+  },
   icons: {
     icon: "/favicon.ico",
     apple: "/apple-touch-icon.png",
