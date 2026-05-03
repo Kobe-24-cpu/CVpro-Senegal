@@ -70,7 +70,7 @@ export default function Header() {
             onClick={closeMenu}
             className="bg-yellow-500 text-zinc-950 text-center py-4 rounded-xl font-bold text-lg"
           >
-            Passer la commande
+            Obtenir mon CVPro
           </Link>
         </div>
       )}
