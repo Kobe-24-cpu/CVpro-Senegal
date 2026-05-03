@@ -37,7 +37,7 @@ export default function Header() {
             href="/commander"
             className="bg-yellow-500 hover:bg-yellow-400 text-zinc-950 px-6 py-2.5 rounded-full font-bold text-sm transition-all"
           >
-            Commander
+            Obtenir mon CVPro
           </Link>
         </div>
 
