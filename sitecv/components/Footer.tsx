@@ -11,7 +11,7 @@ export default function Footer() {
           <div>
             <h3 className="text-yellow-400 font-serif text-2xl mb-4 italic">CVPro Sénégal</h3>
             <p className="text-zinc-400 text-sm leading-relaxed">
-              Propulsez votre carrière avec des documents professionnels. Livraison rapide partout au Sénégal.
+              Propulsez votre carrière avec des documents professionnels. Disponible rapidement partout au Sénégal.
             </p>
           </div>
 

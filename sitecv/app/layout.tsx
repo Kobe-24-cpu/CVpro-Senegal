@@ -4,8 +4,8 @@ import Header from "@/components/Header";
 import Footer from "@/components/Footer";
 
 export const metadata: Metadata = {
-  title: "CVPro Sénégal",
-  description: "Création de CV professionnels",
+  title: "CVPro Sénégal - Créez un CV qui décroche des entretiens",
+  description: "Le service n°1 au Sénégal pour des CV modernes, optimisés ATS et lettres de motivation. Boostez votre carrière dès aujourd'hui.",
 };
 
 export default function RootLayout({
