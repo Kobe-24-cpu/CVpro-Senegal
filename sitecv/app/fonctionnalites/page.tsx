@@ -26,8 +26,8 @@ export default function Fonctionnalites() {
       icon: <FileText className="w-8 h-8 text-yellow-400" />,
     },
     {
-      title: "Adapté au Mobile",
-      description: "Votre CV reste lisible et parfait, même lorsqu'il est consulté sur un smartphone par un recruteur.",
+      title: "Paiement en toute confiance",
+      description: "Pour plus de confiance et de transparence, vous ne payez que 50% au départ. Le reste est réglé uniquement une fois votre CV final validé. Paiement rapide via Wave ou Orange Money.",
       icon: <Smartphone className="w-8 h-8 text-yellow-400" />,
     },
     {
@@ -40,24 +40,21 @@ export default function Fonctionnalites() {
   return (
     <div className="min-h-screen pt-32 pb-20 px-6 relative overflow-hidden">
 
-      {/* ── IMAGE DE FOND ANIMÉE ──────────────────────────────────────
-          Copiez fonctionnalites-bg.png dans /public de votre projet
-      ─────────────────────────────────────────────────────────────── */}
+      {/* Image de fond */}
       <div
         className="absolute inset-0 bg-cover bg-center bg-no-repeat fonct-bg-anim"
         style={{ backgroundImage: "url('/image/fonctionnalites-bg.png')" }}
       />
 
-      {/* Overlay sombre pour lisibilité */}
-      <div className="absolute inset-0 bg-zinc-950/85 pointer-events-none" />
+      {/* ── OVERLAY ALLÉGÉ — de /85 à /55 ── */}
+      <div className="absolute inset-0 bg-zinc-950/55 pointer-events-none" />
 
-      {/* Lueur dorée en haut à droite — joue avec les points lumineux de l'image */}
+      {/* Lueur dorée */}
       <div className="absolute top-0 right-0 w-125 h-75 bg-yellow-500/6 blur-3xl pointer-events-none" />
 
       {/* Fondu bas */}
-      <div className="absolute bottom-0 left-0 right-0 h-32 bg-linear-to-t from-zinc-950 to-transparent pointer-events-none" />
+      <div className="absolute bottom-0 left-0 right-0 h-32 bg-gradient-to-t from-zinc-950 to-transparent pointer-events-none" />
 
-      {/* ── Contenu — structure inchangée ── */}
       <div className="max-w-6xl mx-auto relative z-10">
         <div className="text-center mb-16">
           <h1 className="text-4xl md:text-5xl font-serif font-bold text-white mb-4">
@@ -72,7 +69,7 @@ export default function Fonctionnalites() {
           {features.map((feature, index) => (
             <div
               key={index}
-              className="bg-zinc-900/50 border border-zinc-800 p-8 rounded-2xl hover:border-yellow-500/50 transition-all group"
+              className="bg-zinc-900/60 backdrop-blur-sm border border-zinc-800 p-8 rounded-2xl hover:border-yellow-500/50 transition-all group"
             >
               <div className="mb-4 group-hover:scale-110 transition-transform">
                 {feature.icon}
@@ -84,7 +81,6 @@ export default function Fonctionnalites() {
         </div>
       </div>
 
-      {/* ── Animations ── */}
       <style>{`
         @keyframes fonctReveal {
           0%   { transform: scale(1.08); opacity: 0; filter: blur(6px); }
@@ -103,7 +99,6 @@ export default function Fonctionnalites() {
           will-change: transform, opacity, filter;
         }
       `}</style>
-
     </div>
   );
 }

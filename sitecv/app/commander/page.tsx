@@ -10,14 +10,14 @@ const TARIFS = [
     id: "cv",
     icon: "📄",
     name: "CV Professionnel",
-    price: 5000,
+    price: 3000,
     features: ["Design moderne", "Optimisé ATS", "Format PDF", "1 révision"],
   },
   {
     id: "pack",
     icon: "📦",
     name: "Pack Complet",
-    price: 8000,
+    price: 5000,
     featured: true,
     features: ["CV sur-mesure", "Lettre de motivation", "Design assorti", "2 révisions"],
   },
@@ -25,41 +25,28 @@ const TARIFS = [
     id: "lm",
     icon: "✉️",
     name: "Lettre de Motivation",
-    price: 3000,
+    price: 1000,
     features: ["Contenu personnalisé", "Structure pro", "Format PDF", "1 révision"],
   },
 ];
 
 export default function CommanderPage() {
-  const [form, setForm] = useState({
-    prenom: "",
-    nom: "",
-    tel: "",
-    details: "",
-  });
-  
-  // État pour gérer plusieurs services sélectionnés
+  const [form, setForm] = useState({ prenom: "", nom: "", tel: "", details: "" });
   const [selectedServices, setSelectedServices] = useState<string[]>([]);
   const [errors, setErrors] = useState<Record<string, boolean>>({});
 
-  // Fonction pour ajouter/retirer un service
   const toggleService = (serviceId: string) => {
     setSelectedServices((prev) =>
-      prev.includes(serviceId)
-        ? prev.filter((id) => id !== serviceId)
-        : [...prev, serviceId]
+      prev.includes(serviceId) ? prev.filter((id) => id !== serviceId) : [...prev, serviceId]
     );
-    // On retire l'erreur si un service est coché
     setErrors((prev) => ({ ...prev, service: false }));
   };
 
-  // Calcul du prix total dynamique
-  const calculateTotal = () => {
-    return selectedServices.reduce((total, serviceId) => {
+  const calculateTotal = () =>
+    selectedServices.reduce((total, serviceId) => {
       const service = TARIFS.find((t) => t.id === serviceId);
       return total + (service?.price || 0);
     }, 0);
-  };
 
   const sendOrder = () => {
     const newErrors: Record<string, boolean> = {};
@@ -67,7 +54,6 @@ export default function CommanderPage() {
     if (!form.nom) newErrors.nom = true;
     if (!form.tel) newErrors.tel = true;
     if (selectedServices.length === 0) newErrors.service = true;
-    
     setErrors(newErrors);
     if (Object.keys(newErrors).length > 0) return;
 
@@ -76,7 +62,6 @@ export default function CommanderPage() {
       .join(", ");
 
     const message = `🇸🇳 *NOUVELLE COMMANDE*\n\n👤 *Client* : ${form.prenom} ${form.nom}\n📞 *Tel* : ${form.tel}\n📋 *Services* : ${namesOfServices}\n💰 *Total* : ${calculateTotal()} FCFA\n📝 *Détails* : ${form.details}`;
-    
     window.open(`https://wa.me/${WHATSAPP_NUMBER}?text=${encodeURIComponent(message)}`, "_blank");
   };
 
@@ -87,32 +72,37 @@ export default function CommanderPage() {
 
   return (
     <main className="min-h-screen text-white py-24 px-6 md:px-16 relative overflow-hidden">
-      
-      {/* IMAGE DE FOND ANIMÉE */}
+
+      {/* Image de fond */}
       <div
         className="absolute inset-0 bg-cover bg-center bg-no-repeat cmd-bg-anim"
         style={{ backgroundImage: "url('/image/commander-bg.png')" }}
       />
 
-      <div className="absolute inset-0 bg-zinc-950/88 pointer-events-none" />
+      {/* ── OVERLAY ALLÉGÉ — de /88 à /55 ── */}
+      <div className="absolute inset-0 bg-zinc-950/55 pointer-events-none" />
+
+      {/* Lueur dorée centrale */}
       <div className="absolute top-1/4 left-1/2 -translate-x-1/2 w-175 h-75 bg-yellow-500/5 blur-3xl pointer-events-none" />
-      <div className="absolute bottom-0 left-0 right-0 h-32 bg-linear-to-t from-zinc-950 to-transparent pointer-events-none" />
+
+      {/* Fondu bas */}
+      <div className="absolute bottom-0 left-0 right-0 h-32 bg-gradient-to-t from-zinc-950 to-transparent pointer-events-none" />
 
       <div className="max-w-6xl mx-auto relative z-10">
         <h1 className="text-4xl font-serif font-bold text-center mb-12">
           Choisissez vos <span className="text-yellow-400">Services</span>
         </h1>
 
-        {/* GRILLE DES OFFRES (MULTI-SÉLECTION) */}
+        {/* GRILLE DES OFFRES */}
         <div className="grid grid-cols-1 md:grid-cols-3 gap-6 mb-20">
           {TARIFS.map((t) => (
             <div
               key={t.id}
               onClick={() => toggleService(t.id)}
-              className={`p-7 rounded-2xl border cursor-pointer transition-all duration-300 relative ${
+              className={`p-7 rounded-2xl border cursor-pointer transition-all duration-300 relative backdrop-blur-sm ${
                 selectedServices.includes(t.id)
                   ? "border-yellow-500 bg-yellow-500/10 ring-2 ring-yellow-500/50 scale-105"
-                  : "border-zinc-800 bg-zinc-900 hover:border-zinc-600"
+                  : "border-zinc-800 bg-zinc-900/60 hover:border-zinc-600"
               }`}
             >
               {selectedServices.includes(t.id) && (
@@ -130,21 +120,17 @@ export default function CommanderPage() {
                   </li>
                 ))}
               </ul>
-              <div
-                className={`text-center py-2 rounded-full text-xs font-bold uppercase tracking-wider ${
-                  selectedServices.includes(t.id)
-                    ? "bg-yellow-500 text-black"
-                    : "bg-zinc-800 text-zinc-400"
-                }`}
-              >
+              <div className={`text-center py-2 rounded-full text-xs font-bold uppercase tracking-wider ${
+                selectedServices.includes(t.id) ? "bg-yellow-500 text-black" : "bg-zinc-800 text-zinc-400"
+              }`}>
                 {selectedServices.includes(t.id) ? "Sélectionné" : "Ajouter au panier"}
               </div>
             </div>
           ))}
         </div>
 
-        {/* FORMULAIRE DE COMMANDE */}
-        <div id="form-section" className="max-w-2xl mx-auto bg-zinc-900 border border-zinc-800 rounded-3xl p-8 shadow-2xl">
+        {/* FORMULAIRE */}
+        <div id="form-section" className="max-w-2xl mx-auto bg-zinc-900/80 backdrop-blur-sm border border-zinc-800 rounded-3xl p-8 shadow-2xl">
           <div className="flex flex-col md:flex-row justify-between items-start md:items-center gap-4 mb-8">
             <h2 className="text-2xl font-bold italic">📋 Vos informations</h2>
             <div className={`bg-yellow-500/10 border px-4 py-2 rounded-xl transition-all ${errors.service ? "border-red-500" : "border-yellow-500/20"}`}>
@@ -178,7 +164,6 @@ export default function CommanderPage() {
             Commander via WhatsApp
           </button>
 
-          {/* RÉASSURANCE */}
           <div className="grid grid-cols-3 gap-2 mt-8 pt-8 border-t border-zinc-800">
             <div className="flex flex-col items-center gap-2 text-center group">
               <Clock className="w-5 h-5 text-yellow-500 group-hover:scale-110 transition-transform" />
