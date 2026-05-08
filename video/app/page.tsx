@@ -119,6 +119,6 @@ export default function HeartProject() {
         className="w-full h-full"
         style={{ position: 'relative' }}
       />
-    </main>
+    </main>    
   );
 }
