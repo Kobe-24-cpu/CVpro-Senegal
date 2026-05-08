@@ -2,8 +2,8 @@
 import { useEffect, useRef } from "react";
 
 const texts = [
-  "My only BF", "I love u♡", "I ll never forget u♥",
-  "God bless u", "you my fav nigga", "I love", "BF♡", "Respecté meu nk",
+  "Princess", "I love u♡", "I ll never forget u♥",
+  "God bless u", "My fav nigga", "I love", "Princess♡", "Respecté meu nk",
 ];
 
 export default function HeartProject() {
