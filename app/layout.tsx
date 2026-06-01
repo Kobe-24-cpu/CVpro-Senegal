@@ -1,20 +1,32 @@
 import type { Metadata } from "next";
+import Script from "next/script";
 import "./globals.css";
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
+
+const META_PIXEL_ID = "815071371317908";
 
 export const metadata: Metadata = {
   // Titre optimisé (Max 60 caractères)
   title: {
     default: "CVPro Sénégal - Créez un CV qui décroche des entretiens",
-    template: "%s | CVPro Sénégal"
+    template: "%s | CVPro Sénégal",
   },
+
   // Description percutante (150-160 caractères)
-  description: "Le service n°1 au Sénégal pour des CV modernes, optimisés ATS et lettres de motivation. Boostez votre carrière avec CVPro-Galsen dès aujourd'hui.",
-  
+  description:
+    "Le service n°1 au Sénégal pour des CV modernes, optimisés ATS et lettres de motivation. Boostez votre carrière avec CVPro-Galsen dès aujourd'hui.",
+
   // Mots-clés stratégiques pour le Sénégal
-  keywords: ["CV professionnel Sénégal", "création CV Dakar", "CV optimisé ATS", "lettre de motivation Sénégal", "emploi Sénégal", "CVPro Galsen"],
-  
+  keywords: [
+    "CV professionnel Sénégal",
+    "création CV Dakar",
+    "CV optimisé ATS",
+    "lettre de motivation Sénégal",
+    "emploi Sénégal",
+    "CVPro Galsen",
+  ],
+
   // URL Canonique (évite le contenu dupliqué)
   alternates: {
     canonical: "https://www.cvpro-galsen.com",
@@ -23,18 +35,19 @@ export const metadata: Metadata = {
   // Configuration pour les réseaux sociaux (WhatsApp, Facebook, LinkedIn)
   openGraph: {
     title: "CVPro Sénégal - Votre CV, Votre Futur",
-    description: "Transformez votre recherche d'emploi au Sénégal avec un CV professionnel.",
+    description:
+      "Transformez votre recherche d'emploi au Sénégal avec un CV professionnel.",
     url: "https://www.cvpro-galsen.com",
     siteName: "CVPro Sénégal",
     locale: "fr_FR",
     type: "website",
     images: [
       {
-        url: '/image/og-image.png', 
+        url: "/image/og-image.png",
         width: 1200,
         height: 630,
-        alt: "Aperçu de CVPro Sénégal"
-      }
+        alt: "Aperçu de CVPro Sénégal",
+      },
     ],
   },
 
@@ -43,7 +56,7 @@ export const metadata: Metadata = {
     card: "summary_large_image",
     title: "CVPro Sénégal",
     description: "Le n°1 du CV professionnel au Sénégal.",
-    images: ['/image/og-image.png'],
+    images: ["/image/og-image.png"],
   },
 
   // Favicons et Icônes
@@ -77,12 +90,38 @@ export default function RootLayout({
   children: React.ReactNode;
 }) {
   return (
-    <html lang="fr" className="scroll-smooth"> {/* Ajout du scroll-smooth pour tes ancres */}
+    <html lang="fr" className="scroll-smooth">
       <body className="bg-zinc-950 flex flex-col min-h-screen antialiased">
+        <Script id="meta-pixel" strategy="afterInteractive">
+          {`
+            !function(f,b,e,v,n,t,s)
+            {if(f.fbq)return;n=f.fbq=function(){n.callMethod?
+            n.callMethod.apply(n,arguments):n.queue.push(arguments)};
+            if(!f._fbq)f._fbq=n;n.push=n;n.loaded=!0;n.version='2.0';
+            n.queue=[];t=b.createElement(e);t.async=!0;
+            t.src=v;s=b.getElementsByTagName(e)[0];
+            s.parentNode.insertBefore(t,s)}(window, document,'script',
+            'https://connect.facebook.net/en_US/fbevents.js');
+
+            fbq('init', '${META_PIXEL_ID}');
+            fbq('track', 'PageView');
+          `}
+        </Script>
+
+        <noscript>
+          <img
+            height="1"
+            width="1"
+            style={{ display: "none" }}
+            src={`https://www.facebook.com/tr?id=${META_PIXEL_ID}&ev=PageView&noscript=1`}
+            alt=""
+          />
+        </noscript>
+
         <Header />
-        <main className="grow">
-          {children}
-        </main>
+
+        <main className="grow">{children}</main>
+
         <Footer />
       </body>
     </html>
